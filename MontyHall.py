@@ -25,7 +25,7 @@ class MontyHall:
         return to_open
 
     def change_selection(self):
-        new_selection = int([door for door in self.__doors if door != self.__selection][0])
+        new_selection = [door for door in self.__doors if door != self.__selection][0]
         return new_selection
 
 
