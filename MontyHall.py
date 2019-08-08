@@ -3,7 +3,7 @@ import numpy as np
 
 class MontyHall:
     
-    def __init__(self, change_door: bool) -> bool:
+    def __init__(self, change_door: bool):
         self.__doors = [0, 1, 2]
         self.__prizes = [True, False, False]
         np.random.shuffle(self.__doors)
@@ -16,13 +16,13 @@ class MontyHall:
         self.__correct_door = [door for door in self.__doors if self.__prized_doors[door] is True][0]
         self.final = True if self.__selection == self.__correct_door else False
 
-    def open_door(self):
+    def open_door(self) -> int:
         wrong_doors = [door for door in self.__doors if self.__prized_doors[door] is False and door != self.__selection]
         to_open = np.random.choice(wrong_doors)
         self.__doors.remove(to_open)
         return to_open
 
-    def change_selection(self):
+    def change_selection(self) -> int:
         new_selection = [door for door in self.__doors if door != self.__selection][0]
         return new_selection
 
