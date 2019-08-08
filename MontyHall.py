@@ -11,7 +11,7 @@ class MontyHall:
         self.__prized_doors = dict(zip(self.__doors, self.__prizes))
         self.__selection = np.random.choice(self.__doors)
         self.__opened_door = self.open_door()
-        if change_door is True:
+        if change_door:
             self.__selection = self.change_selection()
         self.__correct_door = [door for door in self.__doors if self.__prized_doors[door] is True][0]
         self.final = True if self.__selection == self.__correct_door else False
