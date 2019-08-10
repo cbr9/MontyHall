@@ -23,7 +23,7 @@ class MontyHall:
         return to_open
 
     def change_selection(self) -> int:
-        new_selection = [door for door in self.__doors if door != self.__selection][0]
+        new_selection = np.random.choice([door for door in self.__doors if door != self.__selection])
         return new_selection
 
 
