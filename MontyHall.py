@@ -32,19 +32,16 @@ class MontyHall:
 
 if __name__ == "__main__":
     
-    results = []
-    for x in range(100000):
-        test = MontyHall(change_door=True)
-        results.append(test.check_result())
+    def print_results(change_door: bool) -> None:
+        results = []
+        for x in range(100000):
+            test = MontyHall(change_door)
+            results.append(test.check_result())
+        message_modifier = " NOT " if not change_door else " "
+        print("-" * 60)
+        print("Correct results" + message_modifier + f"having changed the selected door: {results.count(True)}")
+        print("Incorrect results" + message_modifier + f"having changed the selected door: {results.count(False)}")
+        print("-" * 60)
 
-    print(f"Correct results having changed the selected door: {results.count(True)}")
-    print(f"Incorrect results having changed the selected door: {results.count(False)}")
-    print("-" * 60)
-
-    results = []
-    for x in range(100000):
-        test = MontyHall(change_door=False)
-        results.append(test.check_result())
-
-    print(f"Correct results NOT having changed the selected door: {results.count(True)}")
-    print(f"Incorrect results NOT having changed the selected door: {results.count(False)}")
+    print_results(change_door=True)
+    print_results(change_door=False)
