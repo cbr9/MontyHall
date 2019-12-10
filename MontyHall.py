@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Dict
+from typing import List
 
 
 class MontyHall:
@@ -14,13 +14,12 @@ class MontyHall:
         else:
             return False
 
-    def create_doors(self) -> Dict:
+    def create_doors(self) -> (List[int], List[bool], int):
         doors = [0, 1, 2]
         prizes = [True, False, False]
         np.random.shuffle(doors)
         np.random.shuffle(prizes)
         return doors, prizes, prizes.index(True)
-
 
     def open_door(self, change_door: bool) -> int:
         selection = np.random.choice(self.doors)
@@ -29,7 +28,6 @@ class MontyHall:
             to_open = np.random.choice(wrong_doors)
             self.doors.remove(to_open)
             selection = np.random.choice([door for door in self.doors if door != selection])
-
         return selection
 
 
