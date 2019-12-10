@@ -25,9 +25,8 @@ class MontyHall:
         selection = np.random.choice(self.doors)
         if change_door:
             wrong_doors = [door for door in self.doors if self.prizes[door] is False and door != selection]
-            to_open = np.random.choice(wrong_doors)
-            self.doors.remove(to_open)
-            selection = np.random.choice([door for door in self.doors if door != selection])
+            to_open = np.random.choice(wrong_doors)  # door that is opened by the TV host
+            selection = np.random.choice([door for door in self.doors if door != selection and door != to_open])
         return selection
 
 
