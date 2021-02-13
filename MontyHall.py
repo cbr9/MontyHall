@@ -9,10 +9,7 @@ class MontyHall:
         self.selection = self.open_door(change_door)
 
     def check_result(self) -> bool:
-        if self.selection == self.correct_door:
-            return True
-        else:
-            return False
+        return self.selection == self.correct_door
 
     def create_doors(self) -> (List[int], List[bool], int):
         doors = [0, 1, 2]
